@@ -13,3 +13,9 @@ To enable it on your kernel you just have to merge the master branch into the ro
 It's tested on:
 Sony Xperia Z Ultra (Stock and AOSP)
 Sony Xperia Z1 (Stock and AOSP)
+
+Credits:
+@BlackSoulxxx 
+Team Project Desire 
+9th Circle of Development
+THDR Alliance 
