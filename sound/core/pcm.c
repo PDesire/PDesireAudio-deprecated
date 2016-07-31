@@ -17,6 +17,11 @@
  *   along with this program; if not, write to the Free Software
  *   Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307 USA
  *
+ *
+ *	 PDesireAudio
+ *	 Modified by Tristan Marsell <tristan.marsell@t-online.de>
+ *   Enables the abillity to playback 24 tempoary 32bit (for the samplerate conversion)
+ *
  */
 
 #include <linux/init.h>
@@ -30,8 +35,8 @@
 #include <sound/control.h>
 #include <sound/info.h>
 
-MODULE_AUTHOR("Jaroslav Kysela <perex@perex.cz>, Abramo Bagnara <abramo@alsa-project.org>");
-MODULE_DESCRIPTION("Midlevel PCM code for ALSA.");
+MODULE_AUTHOR("Jaroslav Kysela <perex@perex.cz>, Abramo Bagnara <abramo@alsa-project.org>, Tristan Marsell <tristan.marsell@t-online.de>");
+MODULE_DESCRIPTION("Midlevel PCM code for ALSA. (+ PDesireAudio)");
 MODULE_LICENSE("GPL");
 
 static LIST_HEAD(snd_pcm_devices);
@@ -315,9 +320,12 @@ static const char *snd_pcm_oss_format_name(int format)
 		return "U16_BE";
 	case AFMT_MPEG:
 		return "MPEG";
+	/* Begin of adding other AFMT Formats 
+	*  This adds 24bit, 32bit and 24bit packed in Little and BIG Endian
+	*/
 	case AFMT_S24_LE
 		return "S24_LE";
-        case AFMT_S24_BE
+    case AFMT_S24_BE
 		return "S24_BE";
 	case AFMT_U24_LE
 		return "U24_LE";
@@ -339,6 +347,7 @@ static const char *snd_pcm_oss_format_name(int format)
 		return "U24_3LE";
 	case AFMT_U24_3BE
 		return "U24_3BE";
+	/* End of added AFMT formats*/
 	default:
 		return "unknown";
 	}

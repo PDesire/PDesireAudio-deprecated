@@ -8,6 +8,11 @@
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  * GNU General Public License for more details.
+ *
+ *
+ *	 PDesireAudio
+ *	 Modified by Tristan Marsell <tristan.marsell@t-online.de>
+ *   Enables maximal output (192kHz 24bit) and 24bit audio capture on CompressQ6 Audio Module QDSP V1
  */
 
 
@@ -60,6 +65,7 @@ static struct snd_pcm_hardware msm_compr_hardware_capture = {
 				SNDRV_PCM_INFO_MMAP_VALID |
 				SNDRV_PCM_INFO_INTERLEAVED |
 				SNDRV_PCM_INFO_PAUSE | SNDRV_PCM_INFO_RESUME),
+				/*Enable 24bit Audio Recording possibillity*/
 	.formats =	      SNDRV_PCM_FMTBIT_S16_LE | SNDRV_PCM_FMTBIT_S24_LE,
 	.rates =		SNDRV_PCM_RATE_8000_48000,
 	.rate_min =	     8000,
@@ -74,6 +80,7 @@ static struct snd_pcm_hardware msm_compr_hardware_capture = {
 	.periods_max =	  COMPRE_CAPTURE_NUM_PERIODS,
 	.fifo_size =	    0,
 };
+/* Enables maximal audio output (192kHz 24bit) */
 
 static struct snd_pcm_hardware msm_compr_hardware_playback = {
 	.info =		 (SNDRV_PCM_INFO_MMAP |
