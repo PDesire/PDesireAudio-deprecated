@@ -8,6 +8,11 @@
 * but WITHOUT ANY WARRANTY; without even the implied warranty of
 * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 * GNU General Public License for more details.
+*
+*
+*	 PDesireAudio
+*	 Modified by Tristan Marsell <tristan.marsell@t-online.de>
+*   Enables maximal output (192kHz 24bit) on AFE Audio Module QDSP V1
 */
 
 
@@ -35,6 +40,7 @@
 
 #define MIN_PERIOD_SIZE (128 * 2)
 #define MAX_PERIOD_SIZE (128 * 2 * 2 * 6)
+/* Enable maximum audio Output */
 static struct snd_pcm_hardware msm_afe_hardware = {
 	.info =			(SNDRV_PCM_INFO_MMAP |
 				SNDRV_PCM_INFO_BLOCK_TRANSFER |

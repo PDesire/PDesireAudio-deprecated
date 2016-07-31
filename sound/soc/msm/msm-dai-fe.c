@@ -8,6 +8,11 @@
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  * GNU General Public License for more details.
+ *
+ *
+ *	 PDesireAudio
+ *	 Modified by Tristan Marsell <tristan.marsell@t-online.de>
+ *   Enables maximal samplerate (192kHz) on DAI-FE Audio module
  */
 
 
@@ -22,6 +27,7 @@
 
 static struct snd_soc_dai_ops msm_fe_dai_ops = {};
 
+/* Add SampleRate bridge from 48kHz to 192kHz */
 /* Conventional and unconventional sample rate supported */
 static unsigned int supported_sample_rates[] = {
 	8000, 11025, 12000, 16000, 22050, 24000, 32000, 44100, 48000,

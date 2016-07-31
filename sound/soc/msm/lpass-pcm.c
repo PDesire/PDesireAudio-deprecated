@@ -8,6 +8,10 @@
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  * GNU General Public License for more details.
+ *
+ *	 PDesireAudio
+ *	 Modified by Tristan Marsell <tristan.marsell@t-online.de>
+ *   Enables maximal output (192kHz 24bit) on LPass Audio Module QDSP V1
  */
 
 
@@ -21,6 +25,7 @@
 #include <sound/dai.h>
 #include "lpass-pcm.h"
 
+/* Enable possible rates from 8kHz 16bit to 192kHz 24bit */
 static const struct snd_pcm_hardware msm_pcm_hardware = {
 	.info			=	SNDRV_PCM_INFO_MMAP |
 					SNDRV_PCM_INFO_MMAP_VALID |
@@ -28,7 +33,7 @@ static const struct snd_pcm_hardware msm_pcm_hardware = {
 					SNDRV_PCM_INFO_PAUSE |
 					SNDRV_PCM_INFO_RESUME,
 	.rates			=	SNDRV_PCM_RATE_8000_192000,
-	.formats		=	SNDRV_PCM_FMTBIT_S16_LE | 						SNDRV_PCM_FMTBIT_S24_LE,
+	.formats		=	SNDRV_PCM_FMTBIT_S16_LE | SNDRV_PCM_FMTBIT_S24_LE,
 	.period_bytes_min =	32,
 	.period_bytes_max =	DMASZ/4,
 	.buffer_bytes_max =	DMASZ,
