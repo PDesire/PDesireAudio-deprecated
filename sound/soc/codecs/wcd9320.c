@@ -13,7 +13,7 @@
  *
  *	 PDesireAudio
  *	 Modified by Tristan Marsell <tristan.marsell@t-online.de>
- *   Enables 24bit audio recording and playback on TAIKO_FORMATS
+ *   Patches and enables 24bit audio recording and playback on TAIKO_FORMATS
  */
 #include <linux/module.h>
 #include <linux/init.h>
@@ -277,9 +277,12 @@ MODULE_PARM_DESC(spkr_drv_wrnd,
 #define TAIKO_MCLK_CLK_12P288MHZ 12288000
 #define TAIKO_MCLK_CLK_9P6MHZ 9600000
 
+/* CHANGED FORMAT TO FMTBIT TO PATCH 24bit AUDIO */
 #define TAIKO_FORMATS_S16_S24_LE (SNDRV_PCM_FMTBIT_S16_LE | \
 			SNDRV_PCM_FMTBIT_S24_LE)
 
+/* CHANGED FORMAT TO FMTBIT TO PATCH 24bit AUDIO */
+/* ADDED SNDRV_PCM_FMTBIT_S24_LE TO ENABLE 24bit AUDIO RECORDING */
 #define TAIKO_FORMATS (SNDRV_PCM_FMTBIT_S16_LE | \
 			SNDRV_PCM_FMTBIT_S24_LE)
 
